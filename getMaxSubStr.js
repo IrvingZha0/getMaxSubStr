@@ -1,13 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
 
-<HEAD>
-  <TITLE> 最大长度公共子串 </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
-  <script>
     var str1 = "abcdefghijklname123what";
     var str2 = "defghiwhatisyourname";
     var L = []; //备忘录 记录L[i][j]最大长度子串L[i][j]=max(L[i-1][j-1]+1,0)
@@ -26,19 +17,17 @@
       var y = -1;
       for (var i = 1; i < str1.length + 1; i++) {
         for (var j = 1; j < str2.length + 1; j++) {
-          //alert(str1[i-1]+":"+str2[j-1]);
           if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
             L[i][j] = L[i - 1][j - 1] + 1;
           } else {
             L[i][j] = 0;
           }
 
-          //document.write(L[i][j]);
           if (L[i][j] > max) {
             max = L[i][j];
             x = i - 1;
             y = j - 1;
-            document.write("i=" + i + ";j=" + j + ";max=" + max + "<br/>");
+            console.log("i=" + i + ";j=" + j + ";max=" + max );
           }
         }
       }
@@ -56,13 +45,6 @@
       for (var i = 0; i < str.length; i++) {
         str_out += str[i];
       }
-      document.write(str_out);
+      console.log(str_out);
     }
-  </script>
-</HEAD>
-
-<BODY>
-
-</BODY>
-
-</HTML>
+  
